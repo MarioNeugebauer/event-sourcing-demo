@@ -2,10 +2,14 @@ package org.htwdresden.informatik.eventSourcingSimpleDemo.event;
 
 import org.htwdresden.informatik.eventSourcingSimpleDemo.model.Port;
 import org.htwdresden.informatik.eventSourcingSimpleDemo.model.Ship;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 
 public class ArrivalEvent extends DomainEvent {
+    private static final Logger log = LoggerFactory.getLogger(ArrivalEvent.class);
+
     private Port port;
     private Ship ship;
 
@@ -17,6 +21,7 @@ public class ArrivalEvent extends DomainEvent {
 
     @Override
     public void process() {
+        log.info("process");
         ship.handleArrival(this);
     }
 
