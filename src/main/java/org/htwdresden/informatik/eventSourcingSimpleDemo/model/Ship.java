@@ -24,7 +24,7 @@ public class Ship {
     }
 
     public void handleArrival(ArrivalEvent arrivalEvent) {
-        log.info("handleArrival");
+        log.info("handleArrival of arrivalEvent "+arrivalEvent+" in Ship "+this);
         this.port = arrivalEvent.getPort();
         cargoList.forEach(cargo -> cargo.handleArrival(arrivalEvent));
     }
